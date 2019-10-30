@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="D:\lazarus\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1317892579"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -WG -l -vewnhibq -FiD:\Proyek\hadrahbot\apps\lib\x86_64-win64 -FuD:\lazarus\components\lazcontrols\lib\x86_64-win64\win32 -FuD:\lazarus\lcl\units\x86_64-win64\win32 -FuD:\lazarus\lcl\units\x86_64-win64 -FuD:\Proyek\synapse40\source\lib\lib\x86_64-win64 -FuD:\lazarus\components\lazutils\lib\x86_64-win64 -FuD:\lazarus\packager\units\x86_64-win64 -FuD:\Proyek\hadrahbot\apps\ -FUD:\Proyek\hadrahbot\apps\lib\x86_64-win64\ -FED:\Proyek\hadrahbot\apps\ -oD:\Proyek\hadrahbot\apps\hbot.exe -dLCL -dLCLwin32 hbot.lpr"/>
+</CONFIG>
