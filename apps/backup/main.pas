@@ -67,6 +67,7 @@ type
     procedure PaternListDrawCell(Sender: TObject; aCol, aRow: Integer;
       aRect: TRect; aState: TGridDrawState);
     procedure PaternListExit(Sender: TObject);
+    procedure PaternPlaylistClick(Sender: TObject);
     procedure PlaylistDownClick(Sender: TObject);
     procedure SaveAsClick(Sender: TObject);
     procedure SaveClick(Sender: TObject);
@@ -161,7 +162,7 @@ begin
   paternfile:=TIniFile.Create(ptntmp);
   playlistfile:=TIniFile.Create(plstmp);
   serial:=TBlockSerial.Create;
-  columncount:=4*8+1;
+  columncount:=4*4+1;
   PaternInit;
   PlaylistInit;
 end;
@@ -190,6 +191,7 @@ begin
      end;
   end;
 end;
+
 
 procedure TMainFrm.PaternAddColumnClick(Sender: TObject);
 begin
@@ -234,6 +236,12 @@ end;
 procedure TMainFrm.PaternListExit(Sender: TObject);
 begin
   PaternSave;
+end;
+
+procedure TMainFrm.PaternPlaylistClick(Sender: TObject);
+begin
+  with PaternPlaylist do if ItemIndex>-1
+  then PlaylistOpen(Items[ItemIndex]);
 end;
 
 procedure TMainFrm.PlaylistDownClick(Sender: TObject);
@@ -333,8 +341,12 @@ end;
 
 procedure TMainFrm.PaternPlayClick(Sender: TObject);
 begin
+  if PageControlSelect.ActivePageIndex=0 then
+     with PaternPlaylist do if Items.Count>0 then
+        ItemIndex:=0;
   Player.Interval:=round(60000/(Bpm.Value*4));
   Player.Enabled:=true;
+
 end;
 
 
@@ -610,7 +622,7 @@ begin
              Exit;
           end;
           PaternPlaylist.ItemIndex:=i;
-          PlaylistOpen(PaternPlaylist.Items[PaternPlaylist.ItemIndex]);
+          PaternPlaylistClick(PaternPlaylist);
           playcol:=1;
        end;
 
